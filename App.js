@@ -1,22 +1,30 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { ThemeProvider } from "styled-components/native";
+import styled from "styled-components/native";
+
+import { theme } from "./src/theme";
+import { SafeArea } from "./src/components/utility/safe-area.component";
+import { Search } from "./src/components/search/search.component";
+
+
+const Text = styled.Text`
+  color: ${props => props.theme.color.gray};
+  font-size: 20px;
+`;
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Weather</Text>
+    <>
+      <ThemeProvider theme={theme}>
+        <SafeArea>
+          <Text>Thu Aug 25 2022 </Text>
+          <Search />
+        </SafeArea>
+      </ThemeProvider>
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 };
 
 export default App;
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
