@@ -19,7 +19,8 @@
     "react-native": "0.69.5",
     "react-native-elements": "^3.4.2",
     "react-native-paper": "^5.0.0-rc.4",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "undefined": "@expo/vector-icons/Ionicons"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

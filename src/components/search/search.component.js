@@ -51,7 +51,7 @@ export const Search = () => {
                 mode="contained"
                 size={28}
                 iconColor="#c0c0c0"
-                containerColor={color.darkgrey}
+                containerColor={color.darkgray}
                 onPress={onSearch}
             />
         </SearchBarContainer>

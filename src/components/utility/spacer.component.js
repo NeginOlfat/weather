@@ -2,7 +2,7 @@ import React from "react";
 import styled, { useTheme } from "styled-components/native";
 
 const sizeVariant = {
-    smali: 1,
+    small: 1,
     medium: 2,
     large: 3,
     xl: 4,
