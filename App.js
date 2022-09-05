@@ -5,11 +5,13 @@ import styled, { ThemeProvider } from "styled-components/native";
 
 import { theme } from "./src/theme";
 import { SafeArea } from "./src/components/utility/safe-area.component";
+import { Spacer } from "./src/components/utility/spacer.component";
 import { Search } from "./src/components/search/search.component";
 import { Text } from "./src/components/typography/text.component";
 import { CardList } from "./src/components/card/cardList.component";
-import { Spacer } from "./src/components/utility/spacer.component";
 import { Image } from "./src/components/image/image.component";
+import { DailyChart } from "./src/components/charts/daily-chart.component";
+import { Details } from "./src/components/details/details.component";
 
 
 const App = () => {
@@ -24,6 +26,9 @@ const App = () => {
             <Image />
             <Spacer />
             <CardList />
+            <DailyChart />
+            <Spacer />
+            <Details />
           </ScrollView>
         </SafeArea>
       </ThemeProvider>

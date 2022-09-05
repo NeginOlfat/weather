@@ -20,10 +20,16 @@ const secondary = (theme) => `
     color: ${theme.color.gray};
 `;
 
+const details = (theme) => `
+    font-size: ${theme.fontSize.details};
+    color: ${theme.color.white};
+`;
+
 const variants = {
     primary,
     secondary,
     title,
+    details,
     defaultText
 };
 
