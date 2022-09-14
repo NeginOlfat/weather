@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components/native";
+
 import { Text } from "../typography/text.component";
+import { WeatherContext } from "../../context/weather.context";
+import { weatherImage } from "./weather-icon.component";
+
 
 const ImageContainer = styled.View`
   justify-content: center;
@@ -20,14 +24,16 @@ const DegreeContainer = styled.View`
 `;
 
 export const Image = () => {
-    return (
-        <ImageContainer>
-            <ImageWeather source={require("../../../assets/Weather/04/04.png")} />
-            <DegreeContainer>
-                <Text variant="title">35</Text>
-                <Text> °C</Text>
-            </DegreeContainer>
-            <Text variant="secondary" >clear</Text>
-        </ImageContainer>
-    )
+
+  const { temp, description, icon } = useContext(WeatherContext);
+  return (
+    <ImageContainer>
+      {icon && <ImageWeather source={weatherImage(icon)} />}
+      <DegreeContainer>
+        <Text variant="title">{temp}</Text>
+        <Text> °C</Text>
+      </DegreeContainer>
+      <Text variant="secondary" >{description}</Text>
+    </ImageContainer>
+  )
 };

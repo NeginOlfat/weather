@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components/native";
+
 import { Spacer } from "../utility/spacer.component";
 import { Text } from "../typography/text.component";
 import { Item } from "./item.component";
+import { WeatherContext } from "../../context/weather.context";
 
 
 const ContainerItems = styled.View`
@@ -15,18 +17,26 @@ const Container = styled.View`
     padding: ${props => props.theme.size[2]}; 
 `;
 
+const sunPosition = (time) => {
+    const data = new Date(time * 1000);
+    const timestr = data.toLocaleTimeString();
+    return timestr;
+}
 
 export const Details = () => {
+
+    const { sunrise, sunset, daily } = useContext(WeatherContext);
+
     return (
         <Container>
             <Text variant="secondary">Details</Text>
             <Spacer size="medium" />
             <ContainerItems>
-                <Item name="sunrise" value="6:24" />
+                <Item name="sunrise" value={sunPosition(sunrise)} />
                 <Spacer size="large" />
-                <Item name="sunset" value="6:24" />
+                <Item name="sunset" value={sunPosition(sunset)} />
                 <Spacer size="large" />
-                <Item name="population" value="4612191" />
+                <Item name="population" value={daily.city.population} />
             </ContainerItems>
         </Container>
     )

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { IconButton } from "react-native-paper";
 import { SearchBar } from "react-native-elements";
 import styled from "styled-components/native";
 
 import { color } from "../../theme/color";
 import { Spacer } from "../utility/spacer.component";
-
+import { WeatherContext } from "../../context/weather.context";
 
 const SearchBarContainer = styled.View`
   padding-Horizontal: ${props => props.theme.space[4]};
@@ -28,10 +28,12 @@ const SearchCity = styled(SearchBar).attrs({
 
 export const Search = () => {
 
-    const [searchedCity, setSearchedCity] = useState("tehran");
+    const { setCity, city } = useContext(WeatherContext);
+
+    const [searchedCity, setSearchedCity] = useState(city);
 
     const onSearch = () => {
-        console.log(searchedCity)
+        setCity(searchedCity)
     }
 
     return (
@@ -50,7 +52,7 @@ export const Search = () => {
                 icon="magnify"
                 mode="contained"
                 size={28}
-                iconColor="#c0c0c0"
+                iconColor={color.lightgray}
                 containerColor={color.darkgray}
                 onPress={onSearch}
             />
